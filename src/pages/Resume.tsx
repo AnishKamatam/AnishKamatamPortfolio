@@ -1,7 +1,18 @@
-import { Box, Typography } from '@mui/material';
+import { Box, Typography, Button } from '@mui/material';
 import { motion } from 'framer-motion';
+import { Download } from 'lucide-react';
 
 const Resume = () => {
+  const handleDownload = () => {
+    const resumeUrl = '/AnishKamatamResume.pdf';
+    const link = document.createElement('a');
+    link.href = resumeUrl;
+    link.download = 'Anish_Kamatam_Resume.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
     <Box
       id="resume"
@@ -47,21 +58,68 @@ const Resume = () => {
 
         <Box
           sx={{
-            width: '100%',
-            height: '800px',
             display: 'flex',
+            flexDirection: { xs: 'column', md: 'row' },
+            gap: '4rem',
+            alignItems: 'center',
             justifyContent: 'center',
           }}
         >
+          {/* Download Button Section */}
           <Box
-            component="iframe"
-            src="/AnishKamatamResume.pdf"
             sx={{
-              width: '100%',
-              height: '100%',
-              border: 'none',
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              gap: '2rem',
+              flex: 1,
             }}
-          />
+          >
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <Button
+                variant="contained"
+                size="large"
+                startIcon={<Download size={24} />}
+                onClick={handleDownload}
+                sx={{
+                  padding: '1rem 2rem',
+                  fontSize: '1.2rem',
+                  borderRadius: '1rem',
+                  background: 'linear-gradient(45deg, #90CAF9 30%, #64B5F6 90%)',
+                  boxShadow: '0 4px 15px rgba(144, 202, 249, 0.4)',
+                  '&:hover': {
+                    background: 'linear-gradient(45deg, #64B5F6 30%, #42A5F5 90%)',
+                    boxShadow: '0 6px 20px rgba(144, 202, 249, 0.6)',
+                  },
+                }}
+              >
+                Download Resume
+              </Button>
+            </motion.div>
+          </Box>
+
+          {/* Resume Image Section */}
+          <Box
+            sx={{
+              flex: 2,
+              maxWidth: { xs: '100%', md: '800px' },
+            }}
+          >
+            <Box
+              component="img"
+              src="/resume-preview.png"
+              alt="Resume Preview"
+              sx={{
+                width: '100%',
+                height: 'auto',
+                borderRadius: '1rem',
+                boxShadow: '0 4px 20px rgba(0, 0, 0, 0.3)',
+              }}
+            />
+          </Box>
         </Box>
       </motion.div>
     </Box>
