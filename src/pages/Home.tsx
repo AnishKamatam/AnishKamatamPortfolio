@@ -1,7 +1,7 @@
 import { Box, Typography } from '@mui/material';
 import { motion } from 'framer-motion';
 import profileImage from '../assets/profile.jpg';
-import AnimatedBackground from '../components/AnimatedBackground';
+import InteractiveGrid from '../components/InteractiveGrid';
 
 const Home = () => {
   return (
@@ -15,15 +15,16 @@ const Home = () => {
         color: 'white',
         padding: '0 10%',
         position: 'relative',
+        overflow: 'hidden',
       }}
     >
-      <AnimatedBackground />
+      <InteractiveGrid />
       
       <motion.div
         initial={{ opacity: 0, x: -50 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.8 }}
-        style={{ maxWidth: '600px', flex: '0 0 50%' }}
+        style={{ maxWidth: '600px', flex: '0 0 50%', position: 'relative', zIndex: 1 }}
       >
         <Typography
           variant="h1"
@@ -44,9 +45,12 @@ const Home = () => {
           variant="h5"
           sx={{
             color: 'text.secondary',
+            lineHeight: 1.6,
+            maxWidth: '90%',
+            fontSize: { xs: '1rem', sm: '1.1rem', md: '1.2rem' },
           }}
         >
-          Welcome to my portfolio
+          I'm a software developer with a focus on building scalable, data-driven applications that solve real-world problems. My work blends backend systems, APIs, and intelligent retrieval pipelines to create efficient, user-centric solutions.
         </Typography>
       </motion.div>
 
@@ -54,7 +58,7 @@ const Home = () => {
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.8, delay: 0.2 }}
-        style={{ flex: '0 0 40%', display: 'flex', justifyContent: 'center' }}
+        style={{ flex: '0 0 40%', display: 'flex', justifyContent: 'center', position: 'relative', zIndex: 1 }}
       >
         <Box
           component="img"
