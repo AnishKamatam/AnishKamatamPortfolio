@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Box, IconButton, Typography } from '@mui/material';
 import { motion } from 'framer-motion';
-import { Home, User, Briefcase, FileText } from 'lucide-react';
+import { Home, Code2, Briefcase, FileText } from 'lucide-react';
 
 interface NavItem {
   name: string;
@@ -11,7 +11,7 @@ interface NavItem {
 
 const navItems: NavItem[] = [
   { name: 'Home', icon: Home, sectionId: 'home' },
-  { name: 'About', icon: User, sectionId: 'about' },
+  { name: 'Skills', icon: Code2, sectionId: 'skills' },
   { name: 'Projects', icon: Briefcase, sectionId: 'projects' },
   { name: 'Resume', icon: FileText, sectionId: 'resume' },
 ];

@@ -2,41 +2,89 @@ import { Box, Typography, Grid, Paper, useTheme } from '@mui/material';
 import { motion } from 'framer-motion';
 import CodeIcon from '@mui/icons-material/Code';
 import StorageIcon from '@mui/icons-material/Storage';
-import ApiIcon from '@mui/icons-material/Api';
+import CloudIcon from '@mui/icons-material/Cloud';
+import DataObjectIcon from '@mui/icons-material/DataObject';
+import WebIcon from '@mui/icons-material/Web';
+import StorageOutlinedIcon from '@mui/icons-material/StorageOutlined';
+import CloudQueueIcon from '@mui/icons-material/CloudQueue';
 import PsychologyIcon from '@mui/icons-material/Psychology';
+import { Code2, Type, Cpu, Coffee, Database, GitBranch, 
+  Network, BrainCircuit, Share2 } from 'lucide-react';
 
-const About = () => {
+const Skills = () => {
   const theme = useTheme();
 
-  const skills = [
+  const topLanguages = [
+    { name: 'Python', icon: <Code2 size={40} color={theme.palette.primary.main} /> },
+    { name: 'TypeScript', icon: <Type size={40} color={theme.palette.primary.main} /> },
+    { name: 'C++', icon: <Cpu size={40} color={theme.palette.primary.main} /> },
+    { name: 'JavaScript', icon: <CodeIcon sx={{ fontSize: 40, color: theme.palette.primary.main }} /> },
+    { name: 'Java', icon: <Coffee size={40} color={theme.palette.primary.main} /> }
+  ];
+
+  const skillCategories = [
     {
-      icon: <CodeIcon sx={{ fontSize: 40, color: theme.palette.primary.main }} />,
-      title: 'Full Stack Development',
-      description: 'Building end-to-end applications with modern frameworks and best practices.'
+      icon: <WebIcon sx={{ fontSize: 40, color: theme.palette.primary.main }} />,
+      title: 'Frontend Development',
+      skills: [
+        { name: 'React.js', icon: <CodeIcon sx={{ fontSize: 24, color: theme.palette.primary.main }} /> },
+        { name: 'Next.js', icon: <CodeIcon sx={{ fontSize: 24, color: theme.palette.primary.main }} /> },
+        { name: 'Tailwind CSS', icon: <CodeIcon sx={{ fontSize: 24, color: theme.palette.primary.main }} /> },
+        { name: 'Responsive Design', icon: <WebIcon sx={{ fontSize: 24, color: theme.palette.primary.main }} /> }
+      ]
     },
     {
-      icon: <StorageIcon sx={{ fontSize: 40, color: theme.palette.primary.main }} />,
-      title: 'Backend Systems',
-      description: 'Designing and implementing robust, scalable backend architectures.'
+      icon: <StorageOutlinedIcon sx={{ fontSize: 40, color: theme.palette.primary.main }} />,
+      title: 'Backend Development',
+      skills: [
+        { name: 'Node.js', icon: <CodeIcon sx={{ fontSize: 24, color: theme.palette.primary.main }} /> },
+        { name: 'Django', icon: <Code2 size={24} color={theme.palette.primary.main} /> },
+        { name: 'MongoDB', icon: <Database size={24} color={theme.palette.primary.main} /> }
+      ]
     },
     {
-      icon: <ApiIcon sx={{ fontSize: 40, color: theme.palette.primary.main }} />,
-      title: 'API Development',
-      description: 'Creating efficient and well-documented RESTful and GraphQL APIs.'
+      icon: <CloudQueueIcon sx={{ fontSize: 40, color: theme.palette.primary.main }} />,
+      title: 'Cloud & DevOps',
+      skills: [
+        { name: 'AWS', icon: <CloudQueueIcon sx={{ fontSize: 24, color: theme.palette.primary.main }} /> },
+        { name: 'Docker', icon: <StorageOutlinedIcon sx={{ fontSize: 24, color: theme.palette.primary.main }} /> },
+        { name: 'Git', icon: <GitBranch size={24} color={theme.palette.primary.main} /> }
+      ]
     },
     {
       icon: <PsychologyIcon sx={{ fontSize: 40, color: theme.palette.primary.main }} />,
-      title: 'Problem Solving',
-      description: 'Analyzing complex problems and developing innovative solutions.'
+      title: 'Data & AI',
+      skills: [
+        { name: 'Pandas', icon: <DataObjectIcon sx={{ fontSize: 24, color: theme.palette.primary.main }} /> },
+        { name: 'NumPy', icon: <BrainCircuit size={24} color={theme.palette.primary.main} /> },
+        { name: 'TensorFlow', icon: <BrainCircuit size={24} color={theme.palette.primary.main} /> },
+        { name: 'Pinecone', icon: <Network size={24} color={theme.palette.primary.main} /> },
+        { name: 'Neo4j', icon: <Share2 size={24} color={theme.palette.primary.main} /> }
+      ]
     }
   ];
 
+  const renderSkillLevel = (level: number) => {
+    return (
+      <Box sx={{ display: 'flex', gap: '0.25rem' }}>
+        {[...Array(5)].map((_, index) => (
+          <Star
+            key={index}
+            size={16}
+            fill={index < level ? theme.palette.primary.main : 'none'}
+            color={index < level ? theme.palette.primary.main : theme.palette.text.secondary}
+          />
+        ))}
+      </Box>
+    );
+  };
+
   return (
     <Box
-      id="about"
+      id="skills"
       sx={{
         minHeight: '100vh',
-        padding: { xs: '4rem 2rem', md: '6rem 4rem' },
+        padding: { xs: '2rem 1rem', md: '4rem 2rem' },
         position: 'relative',
         display: 'flex',
         alignItems: 'center',
@@ -56,15 +104,28 @@ const About = () => {
             marginBottom: '3rem',
             color: 'text.primary',
             fontWeight: 'bold',
-            fontSize: { xs: '2.5rem', md: '3.5rem' },
+            fontSize: { xs: '2rem', md: '2.5rem' },
+            position: 'relative',
+            '&::after': {
+              content: '""',
+              position: 'absolute',
+              bottom: '0.5rem',
+              left: '50%',
+              transform: 'translateX(-50%)',
+              width: '100px',
+              height: '4px',
+              background: `linear-gradient(90deg, ${theme.palette.primary.main}, transparent)`,
+              borderRadius: '2px',
+            }
           }}
         >
-          About Me
+          Technical Skills
         </Typography>
 
-        <Grid container spacing={4} justifyContent="center">
-          {skills.map((skill, index) => (
-            <Grid item xs={12} sm={6} md={3} key={index}>
+        {/* Top Languages Section */}
+        <Grid container spacing={3} sx={{ marginBottom: '4rem', justifyContent: 'center' }}>
+          {topLanguages.map((lang, index) => (
+            <Grid item xs={12} sm={6} md={2.4} key={index}>
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -74,40 +135,27 @@ const About = () => {
                   elevation={3}
                   sx={{
                     padding: '2rem',
-                    height: '100%',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    alignItems: 'center',
                     textAlign: 'center',
                     backgroundColor: 'rgba(10, 10, 10, 0.8)',
                     backdropFilter: 'blur(10px)',
                     borderRadius: '1rem',
                     transition: 'transform 0.3s ease-in-out',
                     '&:hover': {
-                      transform: 'translateY(-10px)',
+                      transform: 'translateY(-5px)',
                     },
                   }}
                 >
-                  {skill.icon}
+                  <Box sx={{ marginBottom: '1rem' }}>
+                    {lang.icon}
+                  </Box>
                   <Typography
-                    variant="h6"
+                    variant="h5"
                     sx={{
-                      marginTop: '1rem',
-                      marginBottom: '0.5rem',
                       color: 'text.primary',
                       fontWeight: 'bold',
                     }}
                   >
-                    {skill.title}
-                  </Typography>
-                  <Typography
-                    variant="body1"
-                    sx={{
-                      color: 'text.secondary',
-                      lineHeight: 1.6,
-                    }}
-                  >
-                    {skill.description}
+                    {lang.name}
                   </Typography>
                 </Paper>
               </motion.div>
@@ -115,42 +163,97 @@ const About = () => {
           ))}
         </Grid>
 
-        <Box
-          sx={{
-            marginTop: '4rem',
-            padding: '2rem',
-            backgroundColor: 'rgba(10, 10, 10, 0.8)',
-            backdropFilter: 'blur(10px)',
-            borderRadius: '1rem',
-            boxShadow: '0 4px 20px rgba(0, 0, 0, 0.1)',
-          }}
-        >
-          <Typography
-            variant="h4"
-            sx={{
-              marginBottom: '1.5rem',
-              color: 'text.primary',
-              fontWeight: 'bold',
-            }}
-          >
-            My Journey
-          </Typography>
-          <Typography
-            variant="body1"
-            sx={{
-              color: 'text.secondary',
-              lineHeight: 1.8,
-              fontSize: '1.1rem',
-            }}
-          >
-            With a passion for technology and problem-solving, I've dedicated my career to building innovative software solutions. 
-            My expertise spans across full-stack development, with a particular focus on creating scalable, data-driven applications. 
-            I believe in writing clean, maintainable code and following best practices to deliver high-quality software.
-          </Typography>
+        {/* Other Skills Categories */}
+        <Box sx={{ 
+          display: 'grid', 
+          gridTemplateColumns: { xs: '1fr', sm: '1fr 1fr' },
+          gap: '2rem',
+          maxWidth: '1200px',
+          margin: '0 auto',
+          padding: '0 1rem'
+        }}>
+          {skillCategories.map((category, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+            >
+              <Paper
+                elevation={3}
+                sx={{
+                  padding: '2rem',
+                  height: '100%',
+                  backgroundColor: 'rgba(10, 10, 10, 0.8)',
+                  backdropFilter: 'blur(10px)',
+                  borderRadius: '1rem',
+                  transition: 'transform 0.3s ease-in-out',
+                  '&:hover': {
+                    transform: 'translateY(-5px)',
+                  },
+                }}
+              >
+                <Box sx={{ 
+                  display: 'flex', 
+                  alignItems: 'center', 
+                  gap: '1rem', 
+                  marginBottom: '2rem',
+                  justifyContent: 'center'
+                }}>
+                  {category.icon}
+                  <Typography
+                    variant="h5"
+                    sx={{
+                      color: 'text.primary',
+                      fontWeight: 'bold',
+                    }}
+                  >
+                    {category.title}
+                  </Typography>
+                </Box>
+                <Box sx={{ 
+                  display: 'grid',
+                  gridTemplateColumns: 'repeat(2, 1fr)',
+                  gap: '1rem'
+                }}>
+                  {category.skills.map((skill, skillIndex) => (
+                    <Box
+                      key={skillIndex}
+                      sx={{
+                        padding: '0.75rem',
+                        backgroundColor: 'rgba(144, 202, 249, 0.1)',
+                        borderRadius: '0.5rem',
+                        transition: 'all 0.3s ease',
+                        '&:hover': {
+                          backgroundColor: 'rgba(144, 202, 249, 0.2)',
+                          transform: 'translateY(-2px)',
+                        },
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '0.5rem',
+                        justifyContent: 'center'
+                      }}
+                    >
+                      {skill.icon}
+                      <Typography
+                        variant="body1"
+                        sx={{
+                          color: 'text.secondary',
+                          fontSize: '0.9rem',
+                        }}
+                      >
+                        {skill.name}
+                      </Typography>
+                    </Box>
+                  ))}
+                </Box>
+              </Paper>
+            </motion.div>
+          ))}
         </Box>
       </motion.div>
     </Box>
   );
 };
 
-export default About; 
+export default Skills; 

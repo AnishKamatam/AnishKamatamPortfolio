@@ -4,7 +4,7 @@ import CssBaseline from '@mui/material/CssBaseline';
 import { Box } from '@mui/material';
 import { Sidebar } from './components/Sidebar';
 import Home from './pages/Home';
-import About from './pages/About';
+import Skills from './pages/About';
 import LandingPage from './components/LandingPage';
 
 // Create a theme instance
@@ -64,7 +64,7 @@ function App() {
             }}
           >
             <Home />
-            <About />
+            <Skills />
             {/* Add other sections here */}
           </Box>
         </Box>
