@@ -14,7 +14,7 @@ const LandingPage = ({ onComplete }: LandingPageProps) => {
   const controls = useAnimation();
 
   const fullText = "Welcome to my portfolio";
-  const typingSpeed = 100; // milliseconds per character
+  const typingSpeed = 50; // Reduced from 100ms to 50ms per character
 
   useEffect(() => {
     let currentIndex = 0;
@@ -140,7 +140,7 @@ const LandingPage = ({ onComplete }: LandingPageProps) => {
 
   const handleNext = () => {
     setShowContent(false);
-    setTimeout(onComplete, 500);
+    setTimeout(onComplete, 200); // Reduced from 500ms to 200ms
   };
 
   return (

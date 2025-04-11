@@ -24,7 +24,13 @@ const Home = () => {
         initial={{ opacity: 0, x: -50 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.8 }}
-        style={{ maxWidth: '600px', flex: '0 0 50%', position: 'relative', zIndex: 1 }}
+        style={{ 
+          maxWidth: '800px', 
+          flex: '0 0 60%', 
+          position: 'relative', 
+          zIndex: 1,
+          paddingRight: '2rem'
+        }}
       >
         <Typography
           variant="h1"
@@ -46,7 +52,6 @@ const Home = () => {
           sx={{
             color: 'text.secondary',
             lineHeight: 1.6,
-            maxWidth: '90%',
             fontSize: { xs: '1rem', sm: '1.1rem', md: '1.2rem' },
           }}
         >
