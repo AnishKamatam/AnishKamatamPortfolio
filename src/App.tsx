@@ -1,7 +1,7 @@
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Box } from '@mui/material';
+import { Sidebar } from './components/Sidebar';
 import Home from './pages/Home';
 
 // Create a theme instance
@@ -28,16 +28,18 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <Router>
-        <Box sx={{ minHeight: '100vh' }}>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<div>About Page</div>} />
-            <Route path="/projects" element={<div>Projects Page</div>} />
-            <Route path="/contact" element={<div>Contact Page</div>} />
-          </Routes>
+      <Box sx={{ minHeight: '100vh' }}>
+        <Sidebar />
+        <Box
+          component="main"
+          sx={{
+            minHeight: '100vh',
+          }}
+        >
+          <Home />
+          {/* Add other sections here */}
         </Box>
-      </Router>
+      </Box>
     </ThemeProvider>
   );
 }
