@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Box, IconButton, Typography } from '@mui/material';
-import { motion } from 'framer-motion';
+import { Box, Typography } from '@mui/material';
 import { Home, Code2, Briefcase, FileText } from 'lucide-react';
 
 interface NavItem {

@@ -1,8 +1,6 @@
-import { Box, Typography, Grid, Paper, useTheme } from '@mui/material';
+import { Box, Typography, Paper, useTheme } from '@mui/material';
 import { motion } from 'framer-motion';
 import CodeIcon from '@mui/icons-material/Code';
-import StorageIcon from '@mui/icons-material/Storage';
-import CloudIcon from '@mui/icons-material/Cloud';
 import DataObjectIcon from '@mui/icons-material/DataObject';
 import WebIcon from '@mui/icons-material/Web';
 import StorageOutlinedIcon from '@mui/icons-material/StorageOutlined';
@@ -64,21 +62,6 @@ const Skills = () => {
     }
   ];
 
-  const renderSkillLevel = (level: number) => {
-    return (
-      <Box sx={{ display: 'flex', gap: '0.25rem' }}>
-        {[...Array(5)].map((_, index) => (
-          <Star
-            key={index}
-            size={16}
-            fill={index < level ? theme.palette.primary.main : 'none'}
-            color={index < level ? theme.palette.primary.main : theme.palette.text.secondary}
-          />
-        ))}
-      </Box>
-    );
-  };
-
   return (
     <Box
       id="skills"
@@ -123,9 +106,15 @@ const Skills = () => {
         </Typography>
 
         {/* Top Languages Section */}
-        <Grid container spacing={3} sx={{ marginBottom: '4rem', justifyContent: 'center' }}>
+        <Box sx={{ 
+          display: 'grid', 
+          gridTemplateColumns: { xs: '1fr', sm: 'repeat(2, 1fr)', md: 'repeat(5, 1fr)' },
+          gap: '2rem',
+          marginBottom: '4rem',
+          justifyContent: 'center'
+        }}>
           {topLanguages.map((lang, index) => (
-            <Grid item xs={12} sm={6} md={2.4} key={index}>
+            <Box key={index}>
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -159,9 +148,9 @@ const Skills = () => {
                   </Typography>
                 </Paper>
               </motion.div>
-            </Grid>
+            </Box>
           ))}
-        </Grid>
+        </Box>
 
         {/* Other Skills Categories */}
         <Box sx={{ 

@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { Box, Typography, Button } from '@mui/material';
-import { motion, useAnimation } from 'framer-motion';
+import { motion } from 'framer-motion';
 import CodeIcon from '@mui/icons-material/Code';
 
 interface LandingPageProps {
@@ -11,7 +11,6 @@ const LandingPage = ({ onComplete }: LandingPageProps) => {
   const [showContent, setShowContent] = useState(true);
   const [displayText, setDisplayText] = useState('');
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const controls = useAnimation();
 
   const fullText = "Welcome to my portfolio";
   const typingSpeed = 50; // Reduced from 100ms to 50ms per character

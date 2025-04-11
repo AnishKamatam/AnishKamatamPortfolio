@@ -1,4 +1,4 @@
-import { Box, Typography, Grid, Paper, Button } from '@mui/material';
+import { Box, Typography, Paper, Button } from '@mui/material';
 import { motion } from 'framer-motion';
 import { Code2, ExternalLink, Github } from 'lucide-react';
 
