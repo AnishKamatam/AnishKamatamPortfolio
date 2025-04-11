@@ -5,6 +5,8 @@ import { Box } from '@mui/material';
 import { Sidebar } from './components/Sidebar';
 import Home from './pages/Home';
 import Skills from './pages/About';
+import Projects from './pages/Projects';
+import Resume from './pages/Resume';
 import LandingPage from './components/LandingPage';
 
 // Create a theme instance
@@ -65,7 +67,8 @@ function App() {
           >
             <Home />
             <Skills />
-            {/* Add other sections here */}
+            <Projects />
+            <Resume />
           </Box>
         </Box>
       )}
