@@ -5,18 +5,18 @@ import { Code2, ExternalLink, Github } from 'lucide-react';
 const Projects = () => {
   const projects = [
     {
-      title: 'Graph-RAG Semantic Retrieval for Brand-to-Generic Drug Mapping}',
+      title: 'Graph-RAG Semantic Retrieval for Brand-to-Generic Drug Mapping | MedWise',
       description: 'Utilized a graph-based Retrieval-Augmented Generation (RAG) approach, combining semantic vector search with a Neo4j knowledge graph to model relationships between drugs, classes, manufacturers, and side effects for accurate and explainable recommendations.',
       technologies: ['Next.js', 'React', 'Typescript', 'Tailwind CSS', 'Neo4j', 'GoogleGemini API', 'Langchain', 'Pinecone'],
-      githubLink: 'https://github.com/ani-sivaa/sfhacks2025',
-      demoLink: 'https://www.youtube.com/watch?v=O0iC-H4aI0Q'
+      githubLink: 'https://github.com/AnishKamatam/MedWise',
+      demoLink: 'https://www.youtube.com/watch?v=-aD35bfxy94'
     },
     {
-      title: 'Time Series Forecasting of S&P 500 using LSTM Networks',
-      description: 'Designed and implemented an LSTM-based model to predict the daily closing prices of the S&P 500 index using historical stock data. Optimized model training and evaluation using TensorFlow and Keras, achieving improved accuracy and efficiency through hyperparameter tuning and data normalization techniques. Achieved a Mean Absolute Error (MAE) of 1.2 and a Root Mean Square Error (RMSE) of 1.8.',
-      technologies: ['Python', 'TensorFlow', 'Keras', 'Pandas', 'NumPy'],
-      githubLink: 'https://github.com/AnishKamatam/LSTMStockPredictionApp',
-      demoLink: 'https://github.com/AnishKamatam/LSTMStockPredictionApp'
+      title: 'Disaster Response Agent System | Multimodal Voice-to-Agent Framework',
+      description: 'Developed a voice-driven disaster response system with 4 autonomous agents(Fire, Medical, Police, NGO), coordinating actions using a centralized dispatcher and the Model Context Protocol (MCP) integrated 6+ external APIs (ElevenLabs, DeepL, Google Maps, Apify, Perplexity Sonar Pro) to enable real-time transcription, translation, routing, and geospatial mapping across dynamic emergency scenarios.',
+      technologies: ['Node.js,', 'JavaScript,', 'Express', 'REST APIs'],
+      githubLink: 'https://github.com/AnishKamatam/sentra',
+      demoLink: 'https://github.com/AnishKamatam/sentra'
     },
     {
       title: 'Portfolio Website',

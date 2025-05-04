@@ -4,10 +4,10 @@ import { Download } from 'lucide-react';
 
 const Resume = () => {
   const handleDownload = () => {
-    const resumeUrl = '/AnishKamatamResume.pdf';
+    const resumeUrl = '/Anish_Kamatam_Resume1.pdf';
     const link = document.createElement('a');
     link.href = resumeUrl;
-    link.download = 'Anish_Kamatam_Resume.pdf';
+    link.download = 'Anish_Kamatam_Resume1.pdf';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
